@@ -26,8 +26,8 @@
 - end
 
 #View entire configuration starting from hostname
-- do show run | begin hostname
-# do sh run | begin hostname
+- show run | begin hostname
+# sh run | begin hostname
 
 #Copy the running configuration to the startup configuration
 - Copy run start
