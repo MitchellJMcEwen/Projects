@@ -1,0 +1,43 @@
+#Linux
+#Tsundoku
+#To own alot of unread literature
+#I made this small script for the joy of hoarding information for later based
+
+#You can edit the location for the github repositories to be downloaded in , in --line 18-- and also edit the sorting command to the same line, which is in --line 38--.
+#
+#
+echo "
+████████╗░██████╗██╗░░░██╗███╗░░██╗██████╗░░█████╗░██╗░░██╗██╗░░░██╗
+╚══██╔══╝██╔════╝██║░░░██║████╗░██║██╔══██╗██╔══██╗██║░██╔╝██║░░░██║
+░░░██║░░░╚█████╗░██║░░░██║██╔██╗██║██║░░██║██║░░██║█████═╝░██║░░░██║
+░░░██║░░░░╚═══██╗██║░░░██║██║╚████║██║░░██║██║░░██║██╔═██╗░██║░░░██║
+░░░██║░░░██████╔╝╚██████╔╝██║░╚███║██████╔╝╚█████╔╝██║░╚██╗╚██████╔╝
+
+#These few lines below basically ask for the github user you wish to clone all repo's for
+
+cd #ADD DIRECTORY LOCATION HERE#
+
+if [ $# -eq 0 ]
+  then
+    echo "Usage: $0 <user_name> "
+    exit;
+fi
+
+USER=$1
+
+for repo in `curl -s https://api.github.com/users/$USER/repos?per_page=1000 |grep git_url |awk '{print $2}'| sed 's/"\(.*\)",/\1/'`;do
+git clone $repo;
+done;
+
+
+#If you would like to sort your repo folders alphabetically un hash tag the lines below
+
+#echo "--------------------"
+#echo "Sorting Github Repos"
+#echo "--------------------"
+#cd #ADD DIRECTORY LOCATION HERE#
+#for dir in */ ; do
+#    start=${dir:0:1}
+#    mkdir -p ${start^^}
+#    mv "$dir" ${start^^}
+#done
