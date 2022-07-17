@@ -1,0 +1,46 @@
+### Start Up Commands
+#The following steps are all completed within packet tracer
+
+###1. Select the router and navigate to the CLI tab to access the console
+- No initial configuration dialog
+- Return!
+
+###2. To enter privileged exec mode use the command enable or en.
+- enable 
+# en
+
+###3. Enter the global configuration mode
+- configure terminal 
+# config t
+
+###4. Change the hostname of the router to R1
+- hostname R1
+
+###5. Override command with “do” and check what interfaces are available on the router
+- do show ip interface brief
+# do sh ip int brief
+
+###6. Configure an interface / assign an ip address
+- Interface gigabitEthernet 0/0
+- ip address {IP address} {net mask}
+- no shutdown
+- end
+
+###7. View entire configuration starting from hostname
+- show run | begin hostname
+# sh run | begin hostname
+
+###8. Copy the running configuration to the startup configuration
+- Copy run start
+
+###9. Backup the current running configuration to flash memory
+- Copy run flash:
+
+###10. Back up the current running configuration to an ftp server if possible
+- Copy run ftp
+- {ftp IP address}
+- {destination filename}
+
+###11. Reload device and ensure the correct configuration runs
+- reload
+
