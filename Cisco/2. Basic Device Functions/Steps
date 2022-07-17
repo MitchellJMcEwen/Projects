@@ -1,0 +1,254 @@
+#The following steps are all completed within packet tracer
+
+###1. Drag and drop 4 routers of the 2911 model with two on each side
+
+###2. Drag and drop two switches of the 2960-24TT model in the middle of each side of routers
+
+###3. Configure each router.
+
+
+R1:
+#Select the router and navigate to the CLI tab to access the console
+- No initial configuration dialog
+- Return!
+
+#To enter privileged exec mode use the command enable or en.
+- en
+
+#Enter the global configuration mode
+- config t
+
+#Change the hostname of the router to R1
+- hostname R1
+
+#Override command with “do” and check what interfaces are available on the router
+- do sh ip int brief
+
+#Configure an interface / assign an ip address
+#Add an executive timeout for 5 minutes of inactivity
+- Interface gigabitEthernet0/0
+- ip address 10.10.10.1 255.255.255.0
+- no shutdown
+- line con 0
+- exec timeout 5 0 
+- end
+
+#View entire configuration starting from hostname
+- copysh run | begin hostname
+
+#Copy the running configuration to the startup configuration
+- Copy run start
+
+#Reload device and ensure the correct configuration runs
+- reload
+
+
+
+R2:
+#Select the router and navigate to the CLI tab to access the console
+- No initial configuration dialog
+- Return!
+
+#To enter privileged exec mode use the command enable or en.
+- en
+
+#Enter the global configuration mode
+- config t
+
+#Change the hostname of the router to R2
+- hostname R2
+
+#Override command with “do” and check what interfaces are available on the router
+- do sh ip int brief
+
+#Configure an interface / assign an ip address. 
+#Add an executive timeout for 5 minutes of inactivity
+- Interface gigabitEthernet0/0
+- ip address 10.10.10.2 255.255.255.0
+- no shutdown
+- line con 0
+- exec timeout 5 0 
+- end
+
+#View entire configuration starting from hostname
+- sh run | begin hostname
+
+#Copy the running configuration to the startup configuration
+- Copy run start
+
+#Reload device and ensure the correct configuration runs
+- reload
+
+
+
+R3:
+#Select the router and navigate to the CLI tab to access the console
+- No initial configuration dialog
+- Return!
+
+#To enter privileged exec mode use the command enable or en.
+- en
+
+#Enter the global configuration mode
+- config t
+
+#Change the hostname of the router to R3
+- hostname R3
+
+#Override command with “do” and check what interfaces are available on the router
+- do sh ip int brief
+
+#Configure an interface / assign an ip address
+#Add an executive timeout for 5 minutes of inactivity
+- Interface gigabitEthernet0/0
+- ip address 10.10.10.3 255.255.255.0
+- no shutdown
+- line con 0
+- exec timeout 5 0 
+- end
+
+#View entire configuration starting from hostname
+- sh run | begin hostname
+
+#Copy the running configuration to the startup configuration
+- Copy run start
+
+#Reload device and ensure the correct configuration runs
+- reload
+
+
+
+
+R4:
+#Select the router and navigate to the CLI tab to access the console
+- No initial configuration dialog
+- Return!
+
+#To enter privileged exec mode use the command enable or en.
+- en
+
+#Enter the global configuration mode
+- config t
+
+#Change the hostname of the router to R4
+- hostname R4
+
+#Override command with “do” and check what interfaces are available on the router
+- do sh ip int brief
+
+#Configure an interface / assign an ip address
+#Add an executive timeout for 5 minutes of inactivity
+- Interface gigabitEthernet0/0
+- ip address 10.10.10.4 255.255.255.0
+- no shutdown
+- line con 0
+- exec timeout 5 0 
+- end
+
+#View entire configuration starting from hostname
+- sh run | begin hostname
+
+#Copy the running configuration to the startup configuration
+- Copy run start
+
+#Reload device and ensure the correct configuration runs
+- reload
+
+
+
+###4. Configure each switch.
+
+
+S1:
+#Select the router and navigate to the CLI tab to access the console
+- No initial configuration dialog
+- Return!
+
+#To enter privileged exec mode use the command enable or en.
+- en
+
+#Enter the global configuration mode
+- config t
+
+#Change the hostname of the router to S1
+- hostname S1
+
+#Override command with “do” and check what interfaces are available on the switch
+- do sh ip int brief
+
+#View entire configuration starting from hostname
+- sh run | begin hostname
+
+#Copy the running configuration to the startup configuration
+- Copy run start
+
+#Reload device and ensure the correct configuration runs
+- reload
+
+
+
+S2:
+#Select the router and navigate to the CLI tab to access the console
+- No initial configuration dialog
+- Return!
+
+#To enter privileged exec mode use the command enable or en.
+- en
+
+#Enter the global configuration mode
+- config t
+
+#Change the hostname of the router to S2
+- hostname S2
+
+#Override command with “do” and check what interfaces are available on the switch
+- do sh ip int brief
+
+#View entire configuration starting from hostname
+- sh run | begin hostname
+
+#Copy the running configuration to the startup configuration
+- Copy run start
+
+#Reload device and ensure the correct configuration runs
+- reload
+
+
+
+###5. Connect the routers to the corresponding switches with a straight-through copper cable.
+
+#From the cable selection below select the solid black line that says copper straight-through cable and draw the line from router to switch.
+
+#R1 to S1
+#Click on R1 gigabitethernet0/0 to S1 fastethernet0/1
+
+#R2 to S1
+#Click on R2 gigabitethernet0/0 to S1 fastethernet0/2
+
+#R3 to S2
+#Click on R3 gigabitethernet0/0 to S2 fastethernet0/3
+
+#R4 to S2
+#Click on R4 gigabitethernet0/0 to S2 fastethernet0/4
+
+
+
+###5. Connect the switches to eachother with a straight-through copper cable.
+
+#R1 to S2
+#Click on S1 fastethernet0/24 to S2 fastethernet0/24
+
+6. Ping each router from R1 to test for connectivity
+
+#From R1 go to the CLI
+#Ping R2
+- ping 10.10.10.2 
+
+#Ping R3
+- ping 10.10.10.3
+
+#Ping R4
+- ping 10.10.10.4
+
+
+
