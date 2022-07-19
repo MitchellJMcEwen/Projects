@@ -35,7 +35,7 @@ R1:
 - end
 
 #View entire configuration starting from hostname
-- copysh run | begin hostname
+- sh run | begin hostname
 
 #Copy the running configuration to the startup configuration
 - Copy run start
