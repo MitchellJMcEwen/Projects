@@ -3,7 +3,7 @@ import requests
 import time
 
 # Replace 'YOUR_API_KEY' with your actual AbuseIPDB API key
-ABUSEIPDB_API_KEY = '1ffff2a44b8f87ce620c315655ec63c847fe66fe89f6e85f21b7c42fcc347857a0f31e4a4b4c15f3'  # Replace with your AbuseIPDB API key
+ABUSEIPDB_API_KEY = 'API_KEY'  # Replace with your AbuseIPDB API key
 CHECK_INTERVAL = 5  # Refresh interval in seconds
 THRESHOLD_CONFIDENCE = 0
 THRESHOLD_REPORTS = 5
